@@ -1,18 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ivotesimulator;
 
-/**
- *
- * @author MingKie
- */
+// class: MCQuestion
+// purpose: Implements interface Question and represents single choice
+// question type.
 public class SCQuestion implements Question{
     
+    // An integer value of 2 to represent single choice question
+    // type.
     private final int questionType = 2;
 
+    // method: getQuestionType()
+    // purpose: Returns its question type.
     @Override
     public int getQuestionType() {
         return questionType;

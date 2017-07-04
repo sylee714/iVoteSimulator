@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ivotesimulator;
 
-/**
- *
- * @author MingKie
- */
+// interface: Question
+// purpose: Different type of question implements this interface
 public interface Question {
     
+    // method: getQuestionType()
+    // purpose: Returns its question type.
     public int getQuestionType();
+    
 }

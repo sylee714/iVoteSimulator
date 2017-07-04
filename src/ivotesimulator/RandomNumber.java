@@ -1,30 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ivotesimulator;
 
 import java.util.Random;
 
-/**
- *
- * @author MingKie
- */
+// class: RandomNumber
+// purpose: Represents a random number.
 public class RandomNumber {
     
     private Random random;
-    private int minimum;
-    private int maximum;
+    private int minimum; // Minimum bound
+    private int maximum; // Maximum bound
     
+    // constructor: RandomNumber()
+    // purpose: Creates a random number object.
     public RandomNumber(int minimum, int maximum) {
         random = new Random();
         this.minimum = minimum;
         this.maximum = maximum;
     }
     
-    public int getRandomNumber() {
-        return random.nextInt(maximum + 1 -minimum) + minimum;
+    // method: generateRandomNumber()
+    // purpose: Generate a random number within its bounds. 
+    public int generateRandomNumber() {
+        return random.nextInt(maximum + 1 - minimum) + minimum;
     }
     
 }
