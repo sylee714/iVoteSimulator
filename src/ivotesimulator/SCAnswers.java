@@ -6,23 +6,22 @@ import java.util.List;
 
 // class: SCAnswers
 // purpose: Implements interface Answers and represents single choice
-// type answers.
+//          type answers.
 public class SCAnswers implements Answers {
     
-    // Since it said that we can configure the candidate answers for each type,
-    // I made a default list with options: 1. True and 2. False.
-    private List answers = new ArrayList<>(Arrays.asList
-        ("1. True", "2. False"));
+    private List answers;
     
     // constructor: SCAnswers()
     // purpose: Creates a SCAnswers object with the default 
-    // list of answer options.
+    //          list of answer options: 1. True and 2. False.
     public SCAnswers() {
+        answers = new ArrayList<>(Arrays.asList
+        ("1. True", "2. False"));
     }
     
-    // constructor: SCAnswers()
+    // constructor: SCAnswers(List answers)
     // purpose: Creates a SCAnswers object with different 
-    // list of answer options.
+    //          list of answer options.
     public SCAnswers(List answers) {
         this.answers = answers;
     }

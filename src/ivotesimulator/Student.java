@@ -16,9 +16,10 @@ public class Student {
     //List of answers that student chose
     private List chosenAnswer;
         
-    // constructor: Student()
+    // constructor: Student(String studentID, Answers answers, 
+    //              Question question)
     // purpose: Creates a student object.
-    public Student(String studentID, Answers answers, Question question ) {
+    public Student(String studentID, Answers answers, Question question) {
         this.studentID = studentID;
         this.answers = answers;
         this.question = question;
@@ -34,7 +35,7 @@ public class Student {
     
     // method: submitAnswer()
     // purpose: Student chooses and submits his/her answer.
-    // Only the last submission is counted.
+    //          Only the last submission is counted.
     public void submitAnswer() {
         // When student chooses different answer, clear all the
         // elements of choseAsnwer so the last answer will be counted.

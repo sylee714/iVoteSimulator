@@ -1,11 +1,10 @@
 package ivotesimulator;
 
-// class: SimulationDriver
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+// class: SimulationDriver
 // purpose: Runs the program and tests if it satifies all the requirements.
 public class SimulationDriver {
     
@@ -16,7 +15,7 @@ public class SimulationDriver {
     private static Answers answers;
     private static iVoteService iVoteService;
 
-    // method: main()
+    // method: main(String[] args)
     // purpose: Main method to run the program.
     public static void main(String[] args) {
        programEngine();
@@ -56,7 +55,7 @@ public class SimulationDriver {
     
     // method: initializeIVoteService()
     // purpose: Initializes iVoteService based on the type of question, answer
-    // list, students.
+    //          list, students.
     public static void initializeIVoteService() {
         iVoteService = new iVoteServiceDesktop(question, answers, students);
     }
@@ -65,7 +64,6 @@ public class SimulationDriver {
     // purpose: Calls every initializing method.
     public static void initialize() {
         initializeQuestionAnswers();
-        //initializeAnswers();
         initializeStudents();
         initializeIVoteService();
     }
@@ -76,12 +74,12 @@ public class SimulationDriver {
         iVoteService.startSubmission();
         if (iVoteService.getAcceptSubmission()) {
             System.out.println("Submission history: ");
+            // Assign a random number to test if only the last submission 
+            // of each student is counted. For testing, only 1 to 3 
+            // submissions.
             RandomNumber randomNum = new RandomNumber(1,3);
             for (int i = 0; i < students.length; ++i) {
                 students[i].printStudentID();
-                // Assign a random number to test if only the last submission 
-                // of each student is counted. For testing, only 1 to 3 
-                // submissions.
                 int numberOfSubmissions = randomNum.generateRandomNumber();
                 while (numberOfSubmissions > 0) {
                     students[i].submitAnswer();
@@ -113,7 +111,7 @@ public class SimulationDriver {
     
     // method: programEngine()
     // purpose: Calls methods that are needed to complete the program to run
-    // the program.
+    //          the program.
     public static void programEngine() {
         initialize();
         startSubmission();

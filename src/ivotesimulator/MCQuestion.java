@@ -2,7 +2,7 @@ package ivotesimulator;
 
 // class: MCQuestion
 // purpose: Implements interface Question and represents multiple choices
-// question type.
+//          question type.
 public class MCQuestion implements Question{
     
     // Number of options that students can choose.

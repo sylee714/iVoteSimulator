@@ -6,7 +6,7 @@ public interface Question {
    
    // method: setNumberOfAnswersToChoose(int number)
    // purpose: Sets how many answers that student can choose.
-   public void setNumberOfAnswersToChoose(int number); 
+   public void setNumberOfAnswersToChoose(int number);
    
    // method: getNumberOfOptions()
    // purpose: Returns the number of options.

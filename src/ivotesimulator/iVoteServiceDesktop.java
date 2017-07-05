@@ -2,7 +2,7 @@ package ivotesimulator;
 
 // class: iVoteServiceDesktop
 // purpose: Implements iVoteService and represents the desktop version
-// of iVoteService.
+//          of iVoteService.
 public class iVoteServiceDesktop implements iVoteService{
     
     // To indicate if the service is ready to accept submission.
@@ -14,7 +14,8 @@ public class iVoteServiceDesktop implements iVoteService{
     // selected.
     private int[] answerCount;
     
-    // constructor: iVoteServiceDesktop()
+    // constructor: iVoteServiceDesktop(Question question, Answers answers, 
+    //              Student[] students)
     // purpose: Creates a iVoteServiceDesktop object.
     public iVoteServiceDesktop(Question question, Answers answers, 
             Student[] students) {
@@ -36,7 +37,7 @@ public class iVoteServiceDesktop implements iVoteService{
     
     // method: getAcceptSubmission()
     // purpose: Returns a boolean value if the service is open to
-    // accept submissions.
+    //          accept submissions.
     @Override
     public boolean getAcceptSubmission() {
         return acceptSubmission;
@@ -51,7 +52,7 @@ public class iVoteServiceDesktop implements iVoteService{
     
     // method: endSubmission()
     // purpose: Ends the submission and counts the last submissions of
-    // students.
+    //          students.
     @Override
     public void endSubmission() {
         acceptSubmission = false;

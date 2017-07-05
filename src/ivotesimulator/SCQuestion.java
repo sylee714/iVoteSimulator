@@ -2,7 +2,7 @@ package ivotesimulator;
 
 // class: MCQuestion
 // purpose: Implements interface Question and represents single choice
-// question type.
+//          question type.
 public class SCQuestion implements Question{
     
     // Number of options that students can choose.
@@ -10,16 +10,16 @@ public class SCQuestion implements Question{
     
     // constructor: SCQuestion()
     // purpose: Creates a SCQuestion object and sets the numberOfOptios as
-    // 1 since only one option can be chosen in case of single choice type
-    // question.
+    //          1 since only one option can be chosen in case of single choice type
+    //          question.
     public SCQuestion() {
         numberOfOptions = 1;
     }
     
     // method: setNumberOfAnswersToChoose(int number)
     // purpose: Sets how many answers that student can choose.
-    // However, it's not going to be used for this class object because
-    // only one option is allowed for single choice type question. 
+    //          However, it's not going to be used for this class object because
+    //          only one option is allowed for single choice type question. 
     @Override
     public void setNumberOfAnswersToChoose(int number) {
     }

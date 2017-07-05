@@ -6,7 +6,7 @@ public interface iVoteService {
     
     // method: getAcceptSubmission()
     // purpose: Returns a boolean value if the service is open to
-    // accept submissions.
+    //          accept submissions.
     public boolean getAcceptSubmission();
 
     // method: submitAnswers()
@@ -15,7 +15,7 @@ public interface iVoteService {
 
     // method: endSubmission()
     // purpose: Ends the submission and counts the last submissions of
-    // students.
+    //          students.
     public void endSubmission();
 
     // method: countAnswers()

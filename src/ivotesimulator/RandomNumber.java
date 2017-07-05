@@ -12,7 +12,7 @@ public class RandomNumber {
     // Maximum bound
     private int maximum;
     
-    // constructor: RandomNumber()
+    // constructor: RandomNumber(int minimum, int maximum)
     // purpose: Creates a random number object.
     public RandomNumber(int minimum, int maximum) {
         random = new Random();
@@ -21,7 +21,7 @@ public class RandomNumber {
     }
     
     // method: generateRandomNumber()
-    // purpose: Generate a random number within its bounds. 
+    // purpose: Generates a random number within its bounds. 
     public int generateRandomNumber() {
         return random.nextInt(maximum + 1 - minimum) + minimum;
     }
