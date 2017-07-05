@@ -1,9 +1,6 @@
 package ivotesimulator;
 
 // class: iVoteServiceDesktop
-
-import java.util.Collections;
-
 // purpose: Implements iVoteService and represents the desktop version
 // of iVoteService.
 public class iVoteServiceDesktop implements iVoteService{
