@@ -13,7 +13,7 @@ public class MCQuestion implements Question{
     // purpose: Returns its question type.
     @Override
     public int getQuestionType() {
-       return questionType;
+        return questionType;
     }
     
 }
