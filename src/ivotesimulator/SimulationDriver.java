@@ -1,6 +1,11 @@
 package ivotesimulator;
 
 // class: SimulationDriver
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 // purpose: Runs the program and tests if it satifies all the requirements.
 public class SimulationDriver {
     
@@ -18,27 +23,20 @@ public class SimulationDriver {
     }
   
     // method: initializeQuestion()
-    // purpose: Randomly chooses a type of question.
-    public static void initializeQuestion() {
+    // purpose: Randomly chooses a type of question and configues the answers.
+    public static void initializeQuestionAnswers() {
+        System.out.print("Type of question: ");
         RandomNumber randomNum = new RandomNumber(0, QUESTION_TYPES.length - 1);
         int questionType = QUESTION_TYPES[randomNum.generateRandomNumber()];
         if (questionType == QUESTION_TYPES[0]) {
             question = new MCQuestion();
-            System.out.println("Multiple choices question.");
+            answers = new MCAnswers();
+            question.setNumberOfAnswersToChoose(answers.getAnswers().size());
+            System.out.println("Multiple choices");
         } else {
             question = new SCQuestion();
-            System.out.println("Single choice question.");
-        }
-    }
-    
-    // method: initalizeAnswers()
-    // purpose: Based on the question's type, it chooses appropriate answer
-    // list.
-    public static void initializeAnswers() {
-        if (question.getQuestionType() == QUESTION_TYPES[0]) {
-            answers = new MCAnswers();
-        } else {
             answers = new SCAnswers();
+            System.out.println("Single choice");
         }
     }
     
@@ -46,8 +44,8 @@ public class SimulationDriver {
     // purpose: Randomly chooses a number of students.
     public static void initializeStudents() {
         // To make testing simple and quick, restricted number of students from
-        // 2 to 10.
-        RandomNumber randomNum = new RandomNumber(2, 10);
+        // 2 to 5.
+        RandomNumber randomNum = new RandomNumber(2, 5);
         int numberOfStudents = randomNum.generateRandomNumber();
         students = new Student[numberOfStudents];
         for (int i = 0; i < students.length; ++i) {
@@ -66,8 +64,8 @@ public class SimulationDriver {
     // method: initialize()
     // purpose: Calls every initializing method.
     public static void initialize() {
-        initializeQuestion();
-        initializeAnswers();
+        initializeQuestionAnswers();
+        //initializeAnswers();
         initializeStudents();
         initializeIVoteService();
     }

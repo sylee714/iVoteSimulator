@@ -41,31 +41,23 @@ public class Student {
         if (!chosenAnswer.isEmpty()) {
             chosenAnswer.clear();
         }
-        // Chooses between multiple choice type or single choice type
-        switch (question.getQuestionType()) {
-            // Multiple choices type
-            case 1:
-                // Randomly assign how many options student wants to choose.
-                int numChoose = randomNum.generateRandomNumber() + 1;
-                Object chosenOption; //
-                while (numChoose > 0) {
-                    // Randomly choose an option from the answer list.
-                    chosenOption = answers.getAnswers().
-                            get(randomNum.generateRandomNumber());
-                    // Check if the chosen option is already in chosenAnswer
-                    // list. If not, add it to the list.
-                    if (!chosenAnswer.contains(chosenOption)) {
-                        chosenAnswer.add(chosenOption);
-                        numChoose--;
-                    }
-                }
-                break;
-            // Single choice type
-            case 2:
-                // Randomly choose an option from chosenAnswer list.
-                chosenAnswer.add(answers.getAnswers().get(randomNum.
-                        generateRandomNumber()));
-                break;
+        // Randomly generates a number of options student
+        // wants to choose.
+        RandomNumber randomNumChoose = new RandomNumber(1, 
+                question.getNumberOfOptions());
+        int numChoose = randomNumChoose.generateRandomNumber();
+        // One option that student chose.
+        Object chosenOption;
+        while (numChoose > 0) {
+            // Randomly choose an option from the answer list.
+            chosenOption = answers.getAnswers().
+                get(randomNum.generateRandomNumber());
+            // Check if the chosen option is already in chosenAnswer
+            // list. If not, add it to the list.
+            if (!chosenAnswer.contains(chosenOption)) {
+                chosenAnswer.add(chosenOption);
+                numChoose--;
+            }
         }
     }
     

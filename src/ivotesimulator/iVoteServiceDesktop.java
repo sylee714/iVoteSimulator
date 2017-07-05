@@ -92,7 +92,6 @@ public class iVoteServiceDesktop implements iVoteService{
             System.out.println(answers.getAnswers().get(i) + " : " 
                     + answerCount[i]);
         }
-        System.out.println();
     }
     
 }

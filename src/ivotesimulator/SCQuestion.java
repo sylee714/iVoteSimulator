@@ -5,15 +5,30 @@ package ivotesimulator;
 // question type.
 public class SCQuestion implements Question{
     
-    // An integer value of 2 to represent single choice question
-    // type.
-    private final int questionType = 2;
-
-    // method: getQuestionType()
-    // purpose: Returns its question type.
-    @Override
-    public int getQuestionType() {
-        return questionType;
+    // Number of options that students can choose.
+    private int numberOfOptions;
+    
+    // constructor: SCQuestion()
+    // purpose: Creates a SCQuestion object and sets the numberOfOptios as
+    // 1 since only one option can be chosen in case of single choice type
+    // question.
+    public SCQuestion() {
+        numberOfOptions = 1;
     }
     
+    // method: setNumberOfAnswersToChoose(int number)
+    // purpose: Sets how many answers that student can choose.
+    // However, it's not going to be used for this class object because
+    // only one option is allowed for single choice type question. 
+    @Override
+    public void setNumberOfAnswersToChoose(int number) {
+    }
+    
+    // method: getNumberOfOptions()
+    // purpose: Returns the number of options.
+    @Override
+    public int getNumberOfOptions() {
+        return numberOfOptions;
+    }
+
 }

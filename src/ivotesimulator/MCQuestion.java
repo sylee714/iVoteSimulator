@@ -5,15 +5,26 @@ package ivotesimulator;
 // question type.
 public class MCQuestion implements Question{
     
-    // An integer value of 1 to represent multiple choices question
-    // type.
-    private final int questionType = 1;
-
-    // method: getQuestionType()
-    // purpose: Returns its question type.
+    // Number of options that students can choose.
+    private int numberOfOptions;
+    
+    // constructor: MCQuestion()
+    // purpose: Creates a MCQuestion type.
+    public MCQuestion() {
+    }
+    
+    // method: setNumberOfAnswersToChoose(int number)
+    // purpose: Sets how many answers that student can choose.
     @Override
-    public int getQuestionType() {
-        return questionType;
+    public void setNumberOfAnswersToChoose(int number) {
+        numberOfOptions = number;
+    }
+    
+    // method: getNumberOfOptions()
+    // purpose: Returns the number of options.
+    @Override
+    public int getNumberOfOptions() {
+        return numberOfOptions;
     }
     
 }
