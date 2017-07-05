@@ -8,13 +8,14 @@ import java.util.List;
 // purpose: Represents a student object with associated fields and methods.
 public class Student {
     
-    private RandomNumber randomNum; // To generate a random number
-    private String studentID; // Student's unique ID
+    // To generate a random number
+    private RandomNumber randomNum;
+    private String studentID;
     private Answers answers;
     private Question question;
-    private List chosenAnswer; //List of answers that student chose
-    //private iVoteService iVoteService;
-    
+    //List of answers that student chose
+    private List chosenAnswer;
+        
     // constructor: Student()
     // purpose: Creates a student object.
     public Student(String studentID, Answers answers, Question question ) {
@@ -22,7 +23,6 @@ public class Student {
         this.answers = answers;
         this.question = question;
         chosenAnswer = new ArrayList<>();
-        //this.iVoteService = iVoteService;
         randomNum = new RandomNumber(0, answers.getAnswers().size() - 1);
     }
     
@@ -43,7 +43,7 @@ public class Student {
         }
         // Chooses between multiple choice type or single choice type
         switch (question.getQuestionType()) {
-            // Multiple choice type
+            // Multiple choices type
             case 1:
                 // Randomly assign how many options student wants to choose.
                 int numChoose = randomNum.generateRandomNumber() + 1;

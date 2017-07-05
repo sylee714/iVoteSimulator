@@ -7,8 +7,10 @@ import java.util.Random;
 public class RandomNumber {
     
     private Random random;
-    private int minimum; // Minimum bound
-    private int maximum; // Maximum bound
+    // Minimum bound
+    private int minimum;
+    // Maximum bound
+    private int maximum;
     
     // constructor: RandomNumber()
     // purpose: Creates a random number object.
