@@ -1,18 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ivotesimulator;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-/**
- *
- * @author MingKie
- */
+// class: SimulationDriver
+// purpose: Runs the program and tests if it satifies all the requirements.
 public class SimulationDriver {
     
     // 1 for multiple choices and 2 for single choice
@@ -22,13 +11,14 @@ public class SimulationDriver {
     private static Answers answers;
     private static iVoteService iVoteService;
 
-    /**
-     * @param args the command line arguments
-     */
+    // method: main()
+    // purpose: Main method to run the program.
     public static void main(String[] args) {
        programEngine();
     }
   
+    // method: initializeQuestion()
+    // purpose: Randomly chooses a type of question.
     public static void initializeQuestion() {
         RandomNumber randomNum = new RandomNumber(0, QUESTION_TYPES.length - 1);
         int questionType = QUESTION_TYPES[randomNum.generateRandomNumber()];
@@ -41,6 +31,9 @@ public class SimulationDriver {
         }
     }
     
+    // method: initalizeAnswers()
+    // purpose: Based on the question's type, it chooses appropriate answer
+    // list.
     public static void initializeAnswers() {
         if (question.getQuestionType() == QUESTION_TYPES[0]) {
             answers = new MCAnswers();
@@ -49,7 +42,11 @@ public class SimulationDriver {
         }
     }
     
+    // method: initializeStudents()
+    // purpose: Randomly chooses a number of students.
     public static void initializeStudents() {
+        // To make testing simple and quick, restricted number of students from
+        // 2 to 10.
         RandomNumber randomNum = new RandomNumber(2, 10);
         int numberOfStudents = randomNum.generateRandomNumber();
         students = new Student[numberOfStudents];
@@ -59,10 +56,15 @@ public class SimulationDriver {
         System.out.println("Number of students: " + numberOfStudents);
     }
     
+    // method: initializeIVoteService()
+    // purpose: Initializes iVoteService based on the type of question, answer
+    // list, students.
     public static void initializeIVoteService() {
         iVoteService = new iVoteServiceDesktop(question, answers, students);
     }
     
+    // method: initialize()
+    // purpose: Calls every initializing method.
     public static void initialize() {
         initializeQuestion();
         initializeAnswers();
@@ -70,38 +72,55 @@ public class SimulationDriver {
         initializeIVoteService();
     }
     
+    // method: startSubmission()
+    // purpose: Starts to accept submissions from students.
     public static void startSubmission() {
         iVoteService.startSubmission();
         if (iVoteService.getAcceptSubmission()) {
+            System.out.println("Submission history: ");
             RandomNumber randomNum = new RandomNumber(1,3);
             for (int i = 0; i < students.length; ++i) {
+                students[i].printStudentID();
                 // Assign a random number to test if only the last submission 
-                // of each student is counted. For testing, only 1 to 3 submissions.
+                // of each student is counted. For testing, only 1 to 3 
+                // submissions.
                 int numberOfSubmissions = randomNum.generateRandomNumber();
                 while (numberOfSubmissions > 0) {
                     students[i].submitAnswer();
+                    // Sort student's answer list
+                    students[i].sortChosenAnswer();
+                    // Prints out each student's answers to check if the 
+                    // program works
+                    students[i].printChosenAnswer();
                     numberOfSubmissions--;
                 }
             } 
-            } else {
-                System.err.println("Service is not open. Cannot submit answers.");
-            }
+        } else {
+            System.err.println("Service is not open. "
+                    + "Cannot submit answers.");
+        }
     }
     
+    // method: endSubmission()
+    // purpose: Stops accepting submissions from students.
     public static void endSubmission() {
         iVoteService.endSubmission();
     }
     
+    // method: printResult()
+    // purpose: Prints out the result.
     public static void printResult() {
         iVoteService.printResult();
     }
     
+    // method: programEngine()
+    // purpose: Calls methods that are needed to complete the program to run
+    // the program.
     public static void programEngine() {
         initialize();
         startSubmission();
         endSubmission();
         printResult();
     }
-    
-    
+      
 }

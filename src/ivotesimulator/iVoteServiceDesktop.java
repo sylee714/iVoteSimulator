@@ -58,13 +58,12 @@ public class iVoteServiceDesktop implements iVoteService{
     @Override
     public void endSubmission() {
         acceptSubmission = false;
+        System.out.println("Students' answers: ");
         // For-loop to go through each student 
         for (int i = 0; i < students.length; ++i) {
-            // Sort student's answer list
-            Collections.sort(students[i].getChosenAnswer());
-             // Prints out each student's answers to check if the program works
-            System.out.println("Student" + students[i].getStudentID() + " : " 
-                    + students[i].getChosenAnswer());
+            // Prints out each student's answers to check if the program works
+            students[i].printStudentID();
+            students[i].printChosenAnswer();
             // For-loop to go through each answer that student chose
             for (int j = 0; j < students[i].getChosenAnswer().size(); ++j) {
                 // For-loop to go through each option in the answer list
@@ -76,7 +75,7 @@ public class iVoteServiceDesktop implements iVoteService{
             }
         }
     }
-    
+ 
     // method: countAnswers()
     // purpose: Counts the answers that students submitted.
     @Override

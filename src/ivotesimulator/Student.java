@@ -1,6 +1,7 @@
 package ivotesimulator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 // class: Student
@@ -35,42 +36,37 @@ public class Student {
     // purpose: Student chooses and submits his/her answer.
     // Only the last submission is counted.
     public void submitAnswer() {
-        // Checks if the iVoteService is open to accept submission
-        //if (iVoteService.getAcceptSubmission()) {
-            // When student chooses different answer, clear all the
-            // elements of choseAsnwer so the last answer will be counted.
-            if (!chosenAnswer.isEmpty()) {
-                chosenAnswer.clear();
-            }
-            // Chooses between multiple choice type or single choice type
-            switch (question.getQuestionType()) {
-                // Multiple choice type
-                case 1:
-                    // Randomly assign how many options student wants to choose.
-                    int numChoose = randomNum.generateRandomNumber() + 1;
-                    Object chosenOption; //
-                    while (numChoose > 0) {
-                        // Randomly choose an option from the answer list.
-                        chosenOption = answers.getAnswers().
-                                get(randomNum.generateRandomNumber());
-                        // Check if the chosen option is already in chosenAnswer
-                        // list. If not, add it to the list.
-                        if (!chosenAnswer.contains(chosenOption)) {
-                            chosenAnswer.add(chosenOption);
-                            numChoose--;
-                        }
+        // When student chooses different answer, clear all the
+        // elements of choseAsnwer so the last answer will be counted.
+        if (!chosenAnswer.isEmpty()) {
+            chosenAnswer.clear();
+        }
+        // Chooses between multiple choice type or single choice type
+        switch (question.getQuestionType()) {
+            // Multiple choice type
+            case 1:
+                // Randomly assign how many options student wants to choose.
+                int numChoose = randomNum.generateRandomNumber() + 1;
+                Object chosenOption; //
+                while (numChoose > 0) {
+                    // Randomly choose an option from the answer list.
+                    chosenOption = answers.getAnswers().
+                            get(randomNum.generateRandomNumber());
+                    // Check if the chosen option is already in chosenAnswer
+                    // list. If not, add it to the list.
+                    if (!chosenAnswer.contains(chosenOption)) {
+                        chosenAnswer.add(chosenOption);
+                        numChoose--;
                     }
-                    break;
-                // Single choice type
-                case 2:
-                    // Randomly choose an option from chosenAnswer list.
-                    chosenAnswer.add(answers.getAnswers().get(randomNum.
-                            generateRandomNumber()));
-                    break;
-            }
-        //} else {
-            //System.out.println("Service is not open. Cannot submit answers.");
-       // }
+                }
+                break;
+            // Single choice type
+            case 2:
+                // Randomly choose an option from chosenAnswer list.
+                chosenAnswer.add(answers.getAnswers().get(randomNum.
+                        generateRandomNumber()));
+                break;
+        }
     }
     
     // method: getChosenAnswer()
@@ -78,5 +74,23 @@ public class Student {
     public List getChosenAnswer() {
         return chosenAnswer;
     }
+    
+    // method: sortChosenAnswer() 
+    // purpose: Sorts chosenAnswer list in ascending order.
+    public void sortChosenAnswer() {
+        Collections.sort(chosenAnswer);
+    }
 
+    // method: printStudentID()
+    // purpose: Prints out student's ID.
+    public void printStudentID() {
+        System.out.println("ID: " + studentID);
+    }
+    
+    // method: printChosenAnswer()
+    // purpose: Prints out chosenAnswer list.
+    public void printChosenAnswer() {
+        System.out.println(chosenAnswer);
+    }
+    
 }
